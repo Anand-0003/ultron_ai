@@ -21,8 +21,6 @@
 </div>
 
 
-<img src="assets/ultron-ui.png" alt="ULTRON AI interface: system diagnostics, particle globe, optical sensor and voice control" width="900">
-
 </div>
 
 ---
