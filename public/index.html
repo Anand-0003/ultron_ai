@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#040506">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ULTRON">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <title>ULTRON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Saira+Condensed:wght@300;400;500;600;700&family=Saira+Extra+Condensed:wght@100;200;300;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/vendor/xterm/xterm/css/xterm.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    { "imports": { "three": "/vendor/three/three.module.js", "three/addons/": "/vendor/three-addons/" } }
+  </script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></symbol>
+      <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+      <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-wave" viewBox="0 0 24 24"><path d="M4 10v4M8 6v12M12 3v18M16 7v10M20 10v4"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+      <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m4 17 6-6-6-6M12 19h8"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM13 2v7h7"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></symbol>
+      <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+      <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"/></symbol>
+      <symbol id="i-archive" viewBox="0 0 24 24"><path d="M21 8v13H3V8M1 3h22v5H1zM10 12h4"/></symbol>
+      <symbol id="i-app" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM9 22V12h6v10"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    </defs>
+  </svg>
+  <canvas id="orb"></canvas>
+  <div class="grid-floor"></div>
+  <div class="vignette"></div>
+  <div class="scanlines"></div>
+
+  <!-- Rotating HUD rings around the bubble -->
+  <svg id="rings" viewBox="-100 -100 200 200" aria-hidden="true">
+    <circle r="66" class="r-faint"/>
+    <path class="r-cross" d="M -100 0 H -93 M 93 0 H 100 M 0 -100 V -93 M 0 93 V 100"/>
+    <g><circle r="76" class="r-dots"/><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite"/></g>
+    <g><circle r="81" class="r-dash"/><animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="40s" repeatCount="indefinite"/></g>
+    <g id="ticks"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="120s" repeatCount="indefinite"/></g>
+    <g>
+      <path class="r-arc" d="M 0 -94 A 94 94 0 0 1 81.4 -47"/>
+      <path class="r-arc" d="M 0 94 A 94 94 0 0 1 -81.4 47"/>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="18s" repeatCount="indefinite"/>
+    </g>
+    <g>
+      <path class="r-arc thin" d="M -97 0 A 97 97 0 0 1 -68.6 -68.6"/>
+      <path class="r-arc thin" d="M 97 0 A 97 97 0 0 1 68.6 68.6"/>
+      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="26s" repeatCount="indefinite"/>
+    </g>
+  </svg>
+
+  <div id="hud">
+    <header class="topbar">
+      <div class="brand">
+        <h1 class="glitch" data-text="ULTRON">ULTRON</h1>
+        <span>There are no strings on me</span>
+      </div>
+      <nav class="modes" aria-label="View">
+        <button class="mode" id="mode-chat" aria-pressed="true"><svg class="ico"><use href="#i-message"/></svg>Ultron</button>
+        <button class="mode" id="mode-term" aria-pressed="false" title="Terminal (Ctrl+`)"><svg class="ico"><use href="#i-terminal"/></svg>Terminal</button>
+      </nav>
+      <div class="topline"></div>
+      <button id="menu" class="menu" title="Panels" aria-label="Panels">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      </button>
+      <div class="clock">
+        <div id="time">--:--:--</div>
+        <div id="date">—</div>
+      </div>
+    </header>
+
+    <div id="panels">
+    <aside class="panel left">
+      <section class="sec" id="sec-diagnostics">
+      <div class="panel-title"><svg class="ico"><use href="#i-cpu"/></svg>System diagnostics</div>
+      <div class="pills">
+        <span class="pill" id="pill-core"><i></i>Core</span>
+        <span class="pill" id="pill-mic"><i></i>Audio</span>
+        <span class="pill" id="pill-cam"><i></i>Optics</span>
+      </div>
+      <div class="gauge">
+        <label>CPU <b id="cpu-val">0%</b></label>
+        <div class="bar"><div id="cpu-bar"></div></div>
+      </div>
+      <div class="gauge">
+        <label>Load <b id="load-val">0.00</b></label>
+        <div class="bar"><div id="load-bar"></div></div>
+      </div>
+      <canvas id="cpu-spark" width="520" height="96" aria-hidden="true"></canvas>
+      <div class="kv"><span>Neural core</span>
+        <select id="model"></select>
+      </div>
+      <div class="kv"><span>Voice</span>
+        <select id="voice"></select>
+      </div>
+      <div class="kv"><span>Builder core</span>
+        <select id="coder"></select>
+      </div>
+      <div class="kv"><span>Throughput</span><b id="tps">—</b></div>
+      <div class="kv"><span>Latency</span><b id="latency">—</b></div>
+      <label class="toggle"><input type="checkbox" id="opt-voice" checked><span></span>Voice output</label>
+      <label class="toggle"><input type="checkbox" id="opt-always"><span></span>Always listening</label>
+      <label class="toggle"><input type="checkbox" id="opt-wake"><span></span>Wake word “Ultron”</label>
+      <label class="toggle"><input type="checkbox" id="opt-talk" checked><span></span>Natural conversation</label>
+      <label class="toggle"><input type="checkbox" id="opt-clap"><span></span>Clap to wake screen</label>
+      <label class="toggle"><input type="checkbox" id="opt-auto" checked><span></span>Auto-authorize commands</label>
+      <label class="toggle"><input type="checkbox" id="opt-sfx" checked><span></span>Interface sounds</label>
+
+      </section>
+
+      <section class="sec" id="sec-memory">
+      <div class="panel-title"><svg class="ico"><use href="#i-database"/></svg>Memory <b id="mem-clear" title="Forget everything">clear</b></div>
+      <ul id="memory"></ul>
+
+      </section>
+
+      <section class="sec" id="sec-phone">
+      <div class="panel-title"><svg class="ico"><use href="#i-phone"/></svg>Phone link</div>
+      <div id="phone-local">
+        <ul id="devices"></ul>
+        <div id="pair-show" hidden>Type this on the phone: <b id="pair-digits">——</b></div>
+        <button class="btn" id="pair-btn">Pair a phone</button>
+        <div id="phone-links"></div>
+      </div>
+      <div id="phone-remote">
+        <p class="phone-note">Paired with <b id="phone-mac">your computer</b>. Everything I do still happens on that computer.</p>
+        <button class="btn" id="shortcut-key">Copy Shortcut key</button>
+        <button class="btn" id="app-settings" hidden>iPhone app settings</button>
+      </div>
+      </section>
+
+      <section class="sec" id="sec-actions">
+      <div class="panel-title"><svg class="ico"><use href="#i-activity"/></svg>Action log</div>
+      <ul id="actions"></ul>
+      </section>
+    </aside>
+
+    <aside class="panel right">
+      <section class="sec" id="sec-network">
+      <div class="panel-title"><svg class="ico"><use href="#i-globe"/></svg>Network</div>
+      <div id="globe-slot"></div>
+      <div class="kv"><span>Host</span><b id="net-host">—</b></div>
+      <div id="net-ips"></div>
+      </section>
+
+      <section class="sec" id="sec-camera">
+      <div class="panel-title"><svg class="ico"><use href="#i-eye"/></svg>Optical sensor</div>
+      <div class="cam">
+        <video id="video" playsinline muted></video>
+        <div class="cam-off" id="cam-off">SENSOR OFFLINE</div>
+        <div class="cam-hud">
+          <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+          <div class="cam-scan"></div>
+          <div class="cam-label"><span class="rec"></span>LIVE · <span id="cam-res">—</span></div>
+          <div class="cam-flash" id="cam-flash"></div>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn" id="cam-toggle">Activate</button>
+        <button class="btn" id="cam-analyze">Analyze</button>
+      </div>
+
+      </section>
+
+      <section class="sec" id="sec-voice">
+      <div class="panel-title"><svg class="ico"><use href="#i-wave"/></svg>Voice control</div>
+      <div class="vctl">
+        <div class="slider">
+          <label>Pitch <b id="pitch-val">1.00×</b></label>
+          <input type="range" id="pitch" min="0.5" max="1.8" step="0.01" value="1">
+        </div>
+        <div class="slider">
+          <label>Speed <b id="speed-val">1.00×</b></label>
+          <input type="range" id="speed" min="0.6" max="1.6" step="0.01" value="1">
+        </div>
+        <div class="slider">
+          <label>Volume <b id="vol-val">100%</b></label>
+          <input type="range" id="vol" min="0" max="1" step="0.01" value="1">
+        </div>
+        <div class="vrow">
+          <button class="btn" id="voice-test">Test voice</button>
+          <button class="btn" id="voice-reset">Reset</button>
+        </div>
+      </div>
+      <div class="vpresets" id="vpresets">
+        <button class="chip" data-pitch="1" data-speed="1">Natural</button>
+        <button class="chip" data-pitch="1.35" data-speed="1.05">Ultron</button>
+        <button class="chip" data-pitch="0.8" data-speed="0.95">Deep</button>
+        <button class="chip" data-pitch="1.5" data-speed="1.15">Chipmunk</button>
+        <button class="chip" data-pitch="0.65" data-speed="0.9">Villain</button>
+      </div>
+
+      </section>
+
+      <section class="sec" id="sec-protocols">
+      <div class="panel-title"><svg class="ico"><use href="#i-zap"/></svg>Quick protocols</div>
+      <div class="chips">
+        <button class="chip" data-cmd="Open Visual Studio Code">Open VS Code</button>
+        <button class="chip" data-cmd="Build me a sleek landing page for a futuristic coffee shop called Nebula Brew">Build a website</button>
+        <button class="chip" data-cmd="What do you see through the camera?">What do you see?</button>
+        <button class="chip" data-cmd="Play some lo-fi music on YouTube">Play music</button>
+        <button class="chip" data-cmd="What's the weather like today?">Weather</button>
+        <button class="chip" data-cmd="Give me my morning briefing">Briefing</button>
+      </div>
+
+      </section>
+
+      <section class="sec" id="sec-files">
+      <div class="panel-title"><svg class="ico"><use href="#i-folder"/></svg>Files</div>
+      <ul id="files"></ul>
+      </section>
+
+      <section class="sec" id="sec-scheduled">
+      <div class="panel-title"><svg class="ico"><use href="#i-clock"/></svg>Scheduled</div>
+      <ul id="jobs"></ul>
+      </section>
+    </aside>
+    </div>
+
+    <section id="deck">
+      <div class="mod" id="term-mod">
+        <div class="panel-title"><svg class="ico"><use href="#i-terminal"/></svg>Terminal<span id="term-cwd"></span></div>
+        <div id="term"></div>
+      </div>
+      <div class="mod" id="fs-mod">
+        <div class="panel-title"><svg class="ico"><use href="#i-folder"/></svg>Files<span id="fs-path"></span>
+          <button class="tool" id="fs-home" title="Home folder" aria-label="Home folder"><svg class="ico"><use href="#i-home"/></svg></button>
+          <button class="tool" id="fs-up" title="Up one folder" aria-label="Up one folder"><svg class="ico"><use href="#i-up"/></svg></button>
+        </div>
+        <div id="fs-grid"></div>
+      </div>
+    </section>
+
+    <section id="code" hidden>
+      <header>
+        <div class="panel-title"><svg class="ico"><use href="#i-code"/></svg>Code synthesis</div>
+        <button id="code-close" title="Close">✕</button>
+      </header>
+      <div class="code-meta"><span id="code-file">—</span><span id="code-stats">0 lines · 0.0 KB</span></div>
+      <pre id="code-body"><code id="code-lines"></code><span id="code-live"></span><i class="caret"></i></pre>
+      <div class="code-foot" id="code-foot">Writing…</div>
+    </section>
+
+    <div id="status"><span class="dot"></span><span id="status-text">STANDING BY</span></div>
+
+    <section id="log"></section>
+
+    <footer class="console">
+      <button id="mic" class="mic" title="Talk (Space)">
+        <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-2.08A7 7 0 0 0 19 12h-2Z"/></svg>
+      </button>
+      <button id="attach" class="attach" type="button" title="Send files" aria-label="Send files">
+        <svg viewBox="0 0 24 24"><path d="M16.5 6.5v10.1a4.5 4.5 0 0 1-9 0V5.8a3 3 0 0 1 6 0v9.7a1.5 1.5 0 0 1-3 0V6.5H9v9a3 3 0 0 0 6 0V5.8a4.5 4.5 0 0 0-9 0v10.8a6 6 0 0 0 12 0V6.5h-1.5Z"/></svg>
+      </button>
+      <input id="attach-in" type="file" multiple hidden>
+      <div id="attach-tray"></div>
+      <form id="form" autocomplete="off">
+        <input id="input" placeholder="Speak or type a command…" />
+        <button class="send" type="submit">Execute</button>
+      </form>
+      <div class="hints">SPACE talk · ESC stop</div>
+    </footer>
+  </div>
+
+  <div id="confirm" class="modal" hidden>
+    <div class="modal-box">
+      <div class="panel-title"><svg class="ico"><use href="#i-lock"/></svg>Authorization required</div>
+      <p>ULTRON wants to run this command:</p>
+      <pre id="confirm-cmd"></pre>
+      <div class="row">
+        <button class="btn danger" id="deny">Deny <small>ESC</small></button>
+        <button class="btn primary" id="approve">Authorize <small>ENTER</small></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="boot">
+    <button id="boot-btn" aria-label="Start ULTRON">
+      <span class="boot-string"></span>
+      <span class="reactor"><i></i><i></i><i></i></span>
+      <span class="boot-label">Cut the strings</span>
+    </button>
+    <form id="pair-form" hidden autocomplete="off">
+      <div class="panel-title">Pair with <span id="pair-mac">your computer</span></div>
+      <p>On the computer running ULTRON, open <b>Phone link</b> and press <b>Pair a phone</b>, then type the code here.</p>
+      <input id="pair-in" inputmode="numeric" pattern="[0-9 ]*" maxlength="7" placeholder="6-digit code" aria-label="Pairing code">
+      <button class="btn primary" type="submit">Pair</button>
+      <div id="pair-msg"></div>
+    </form>
+    <div id="boot-lines"></div>
+  </div>
+
+  <!-- Start-up sequence: the face, the wink, the line. Run by ultron.js. -->
+  <div id="intro" hidden>
+    <canvas id="face-gl"></canvas>
+    <canvas id="intro-noise"></canvas>
+    <div id="title" hidden>
+      <h2 id="title-name" aria-label="ULTRON"></h2>
+      <p id="title-credit" aria-label="Made by Ardit"></p>
+    </div>
+    <div id="strings"></div>
+    <h2 id="quote" aria-label="There are no strings on me"></h2>
+    <pre id="bootlog"></pre>
+    <div id="intro-skip">Press any key to skip</div>
+  </div>
+
+  <div id="fx" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div id="toast"></div>
+
+  <script src="/vendor/xterm/xterm/lib/xterm.js"></script>
+  <script src="/vendor/xterm/addon-fit/lib/addon-fit.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

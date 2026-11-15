@@ -1,0 +1,16 @@
+{
+  "name": "ultron",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ULTRON: a local voice AI that controls your Mac or Windows PC, powered by Ollama",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/xterm": "^6.0.0",
+    "three": "^0.186.1",
+    "ws": "^8.22.0"
+  }
+}
